@@ -21,6 +21,13 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 0.95em;
+      background-color: #8458ff;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
     }
     .hero {
       text-align: center;
