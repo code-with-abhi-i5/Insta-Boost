@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Instagram Views Service Form</title>
+  <title>Instagram Services</title>
   <style>
     body {
-      background-color: #0f1b2a;
+      background: linear-gradient(to bottom, #0400ff, #eecbcb);
       color: #fff;
       font-family: Arial, sans-serif;
       padding: 30px;
-      justify-self: center;
     }
 
     label {
@@ -25,19 +24,15 @@
       margin-top: 5px;
       border-radius: 5px;
       border: none;
-      background-color: #1e2d3d;
-      color: #fff;
+      background-color: #ffffff;
+      color: #000000;
     }
 
-    textarea {
-      resize: vertical;
-      height: 120px;
-    }
-
-    .note {
-      font-size: 0.9em;
-      color: #ccc;
-      margin-top: 5px;
+    #live-price {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #000000;
+      font-weight: bold;
     }
 
     button {
@@ -51,6 +46,10 @@
       cursor: pointer;
     }
 
+    h1 {
+      text-align: center;
+    }
+
     button:hover {
       background-color: #1565c0;
     }
@@ -58,29 +57,58 @@
 </head>
 <body>
 
+  <H1>Free for 5 Days Only likes</H1>
+
   <form>
-    <label>Service</label>
-    <select>
-      <option>Instagram reel views - 500000 per Hour -  Instant - 100 per 1.1 rupees</option>
-      <option>Instagram reel/post likes - 200000 per Hour -  Instant - 100 per 2 rupees</option>
-      <option>Instagram followers - 100000 per Hour -  Instant - 100 per 12 rupees</option>
+    <label for="service">Select Service</label>
+    <select id="service">
+      <option value="views">Instagram Reel Views - ₹0.006 per view</option>
+      <option value="likes">Instagram Likes - ₹0.007 per like</option>
+      <option value="followers">Instagram Followers - ₹0.1 per follower</option>
     </select>
 
+    <label for="link">Instagram Post/reels Link</label>
+    <input type="url" id="link" placeholder="Paste Instagram link" required />
+
     <label>Description</label>
-    <textarea readonly>....
-    </textarea>
+    <textarea readonly>First your I'd Public for Just few Hours
+      Choose a service, enter quantity and link. Charges will be calculated automatically.</textarea></textarea>
 
-    <label>Link</label>
-    <input type="url" placeholder="Paste Instagram Reel Link here" required />
 
-    <label>Quantity</label>
-    <input type="number" min="100" max="5000000" placeholder="Min: 100 - Max: 5,000,000" required />
+    <label for="quantity">Quantity</label>
+    <input type="number" id="quantity" min="100" max="5000000" placeholder="Enter quantity" required />
 
-    <label>Charge</label>
-    <input type="text" placeholder="Auto-calculated" readonly />
+    <div id="live-price">Total Price: ₹0.00</div>
 
     <button type="submit">Submit</button>
   </form>
+
+  <script>
+    const service = document.getElementById("service");
+    const quantity = document.getElementById("quantity");
+    const livePrice = document.getElementById("live-price");
+
+    const rates = {
+      views: 0.006,
+      likes: 0.007,
+      followers: 0.1
+    };
+
+    function updateLivePrice() {
+      const selected = service.value;
+      const qty = parseInt(quantity.value);
+
+      if (!isNaN(qty) && qty >= 100) {
+        const price = qty * rates[selected];
+        livePrice.textContent = Total Price: ₹${price.toFixed(2)};
+      } else {
+        livePrice.textContent = Total Price: ₹0.00;
+      }
+    }
+
+    service.addEventListener("change", updateLivePrice);
+    quantity.addEventListener("input", updateLivePrice);
+  </script>
 
 </body>
 </html>
