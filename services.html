@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Views Service Form</title>
+  <style>
+    body {
+      background-color: #0f1b2a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      justify-self: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+      background-color: #1e2d3d;
+      color: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 120px;
+    }
+
+    .note {
+      font-size: 0.9em;
+      color: #ccc;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <label>Service</label>
+    <select>
+      <option>Instagram reel views - 500000 per Hour -  Instant - 100 per 1.1 rupees</option>
+      <option>Instagram reel/post likes - 200000 per Hour -  Instant - 100 per 2 rupees</option>
+      <option>Instagram followers - 100000 per Hour -  Instant - 100 per 12 rupees</option>
+    </select>
+
+    <label>Description</label>
+    <textarea readonly>....
+    </textarea>
+
+    <label>Link</label>
+    <input type="url" placeholder="Paste Instagram Reel Link here" required />
+
+    <label>Quantity</label>
+    <input type="number" min="100" max="5000000" placeholder="Min: 100 - Max: 5,000,000" required />
+
+    <label>Charge</label>
+    <input type="text" placeholder="Auto-calculated" readonly />
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
