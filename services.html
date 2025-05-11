@@ -1,114 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Instagram Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background: linear-gradient(to bottom, #0400ff, #eecbcb);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff4081, #7e57c2);
+      margin: 0;
+      padding: 40px 20px;
       color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 30px;
     }
 
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    select, input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: none;
-      background-color: #ffffff;
-      color: #000000;
-    }
-
-    #live-price {
-      margin-top: 10px;
-      font-size: 1.1em;
-      color: #000000;
-      font-weight: bold;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 12px 20px;
-      background-color: #1976d2;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    h1 {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
 
+    .pricing {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(12px);
+    }
+
+    .pricing h2 {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #f2f2f2;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #fff;
+      padding: 15px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    th {
+      background-color: rgba(255, 255, 255, 0.2);
+      font-weight: bold;
+      color: #f4f4f4;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 45px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      backdrop-filter: blur(10px);
+      margin-bottom: 30px;
+      animation: slideIn 1s ease-out;
+    }
+
+    form h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #5044ff;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+      color: #ffcccb;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 6px;
+      margin-bottom: 18px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #000000;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #ff4081;
+      outline: none;
+      box-shadow: 0 0 8px rgba(255, 64, 129, 0.6);
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    #live-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffcccb;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    button {
+      background: linear-gradient(to right, #ff4081, #d500f9);
+      color: white;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+      padding: 15px;
+    }
+
     button:hover {
-      background-color: #1565c0;
+      background: linear-gradient(to right, #e91e63, #c2185b);
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+      .container {
+        padding: 0 10px;
+      }
+      .pricing, form {
+        padding: 30px;
+      }
+      form h1 {
+        font-size: 28px;
+      }
+      label, input, select, button {
+        font-size: 14px;
+      }
+      #live-price {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    
+    <!-- Pricing section -->
+    <div class="pricing">
+      <h2>Our Pricing</h2>
+      <table>
+        <tr>
+          <th>Service</th>
+          <th>Rate</th>
+        </tr>
+        <tr>
+          <td>Reel Views</td>
+          <td>₹0.006 per view</td>
+        </tr>
+        <tr>
+          <td>Likes</td>
+          <td>₹0.007 per like</td>
+        </tr>
+        <tr>
+          <td>Followers</td>
+          <td>₹0.10 per follower</td>
+        </tr>
+      </table>
+    </div>
 
-  <H1>Free for 5 Days Only likes</H1>
+    <!-- Form for submitting request -->
+    <form action="https://api.web3forms.com/submit" method="POST" id="service-form">
+      <h1>Grow Your Instagram Account</h1>
 
-  <form>
-    <label for="service">Select Service</label>
-    <select id="service">
-      <option value="views">Instagram Reel Views - ₹0.006 per view</option>
-      <option value="likes">Instagram Likes - ₹0.007 per like</option>
-      <option value="followers">Instagram Followers - ₹0.1 per follower</option>
-    </select>
+      <input type="hidden" name="access_key" value="57c99aed-773c-46e4-9c60-66b544c844f9">
+      <input type="hidden" name="from_name" value="Instagram Boost Form">
+      <input type="hidden" name="subject" value="New Instagram Order">
 
-    <label for="link">Instagram Post/reels Link</label>
-    <input type="url" id="link" placeholder="Paste Instagram link" required />
+      <label for="service">Select Service</label>
+      <select id="service" name="service" required>
+        <option value="views" data-price="0.006">Instagram Reel Views - ₹0.006 per view</option>
+        <option value="likes" data-price="0.007">Instagram Likes - ₹0.007 per like</option>
+        <option value="followers" data-price="0.1">Instagram Followers - ₹0.1 per follower</option>
+      </select>
 
-    <label>Description</label>
-    <textarea readonly>First your I'd Public for Just few Hours
-      Choose a service, enter quantity and link. Charges will be calculated automatically.</textarea></textarea>
+      <label for="link">Instagram Post/Reel Link</label>
+      <input type="url" id="link" name="link" placeholder="Paste Instagram link" required />
 
+      <label>Description</label>
+      <textarea readonly rows="3">
+First your ID must be public for a few hours.
+Choose a service, enter quantity and link.
+Charges will be calculated automatically.
+      </textarea>
 
-    <label for="quantity">Quantity</label>
-    <input type="number" id="quantity" min="100" max="5000000" placeholder="Enter quantity" required />
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" min="100" max="5000000" placeholder="Enter quantity" required />
 
-    <div id="live-price">Total Price: ₹0.00</div>
+      <div id="live-price">Total Price: ₹0.00</div>
 
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    const service = document.getElementById("service");
-    const quantity = document.getElementById("quantity");
-    const livePrice = document.getElementById("live-price");
-
-    const rates = {
-      views: 0.006,
-      likes: 0.007,
-      followers: 0.1
-    };
-
-    function updateLivePrice() {
-      const selected = service.value;
-      const qty = parseInt(quantity.value);
-
-      if (!isNaN(qty) && qty >= 100) {
-        const price = qty * rates[selected];
-        livePrice.textContent = Total Price: ₹${price.toFixed(2)};
-      } else {
-        livePrice.textContent = Total Price: ₹0.00;
-      }
-    }
-
-    service.addEventListener("change", updateLivePrice);
-    quantity.addEventListener("input", updateLivePrice);
-  </script>
-
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </body>
 </html>
