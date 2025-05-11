@@ -1,126 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Let's connect</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(90deg,#ff0f7b,#8f25f3);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
     }
 
-    .container {
-      display: flex;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      background: #ffd4d4;
-      max-width: 800px;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .contact-container {
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1100px;
       width: 100%;
-      margin-right: 10px;
+      animation: slideIn 1s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
     }
 
     .contact-info {
-      background: #c79494;
-      color: #fff;
-      padding: 30px;
-      width: 40%;
-    }
-
-    .contact-info h2 {
-      margin-bottom: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
     }
 
-    .contact-info p, .contact-info a {
-      color: #fff;
-      margin: 10px 0;
-      text-decoration: none;
-      display: block;
+    .contact-info h2 {
+      font-size: 2.2em;
+      margin-bottom: 25px;
+      animation: bounceIn 1s ease-out;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      60% {
+        transform: translateY(20px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .contact-info p {
+      margin: 15px 0;
+      font-size: 1.2em;
+    }
+
+    .contact-info i {
+      margin-right: 10px;
+    }
+
+    .contact-social a {
+      margin: 15px 20px;
+      color: white;
+      font-size: 1.8em;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-social a:hover {
+      transform: scale(1.3);
+      color: #ff6347;
     }
 
     .contact-form {
-      padding: 30px;
-      width: 60%;
+      padding: 50px 30px;
+      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
     }
 
     .contact-form h2 {
       margin-bottom: 20px;
-      text-align: center;
+      font-size: 2em;
+      color: #333;
+      text-transform: uppercase;
+      font-weight: bold;
     }
 
-    .contact-form input, .contact-form textarea {
+    .contact-form form input,
+    .contact-form form textarea {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-
-    .contact-form button {
-      background: #10af97;
-      color: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
       border: none;
-      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      background: #fff;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .contact-form form input:focus,
+    .contact-form form textarea:focus {
+      box-shadow: inset 0 0 10px rgba(67, 67, 67, 0.3);
+    }
+
+    .contact-form form button {
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      color: white;
+      border: none;
+      padding: 18px 30px;
+      font-size: 1.1em;
+      border-radius: 40px;
       cursor: pointer;
-      border-radius: 4px;
+      transition: transform 0.3s, background 0.3s ease;
     }
 
-    .contact-form button:hover {
-      background:#161717;
+    .contact-form form button:hover {
+      transform: scale(1.05);
+      background: #ff6347;
     }
 
-    .social-icons {
-      display: flex;
-      flex-direction: row;
-      gap: 15px;
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info, .contact-form {
+        padding: 40px 20px;
+      }
     }
-
-    .social-icons a {
-  color: white;
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-.social-icons a:hover {
-  color: #040000;
-}
-
-
   </style>
 </head>
 <body>
-
-  <div class="container">
+  <div class="contact-container">
     <div class="contact-info">
-      <h2>Let's get in touch</h2>
-      <p><strong>We’re open for any suggestion or just to have a chat.</strong></p> <br>
-      <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> xyz</p> <br>
-      <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +9152222222</p> <br>
-      <p><i class="fa fa-envelope"></i> <strong>Email:</strong>
-        ghxyz@gmail.com</p> <br>
-      <p><i class="fas fa-globe"></i> <strong>Our socail:</strong>
-        <i class="social-icons">
-        <a href=""><i class="fab fa-whatsapp"></i>
-        <a href=""><i class="fab fa-facebook"></i></a>
-        <a href=""><i class="fab fa-twitter"></i></a>
-        <a href=""><i class="fab fa-instagram"></i></a>
-        <a href=""><i class="fab fa-youtube"></i></a></p>
+      <h2>Let's Connect</h2>
+      <p><i class="fas fa-map-marker-alt"></i><strong> Address:</strong> XYZ City</p>
+      <p><i class="fas fa-phone"></i><strong> Phone:</strong> +91 522222222</p>
+      <p><i class="fas fa-envelope"></i><strong> Email:</strong> ghxyz@gmail.com</p>
+      <div class="contact-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
-
     <div class="contact-form">
-      <h2>Get in touch</h2>
+      <h2>Send Us a Message</h2>
       <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Subject" required>
-        <textarea rows="5" placeholder="Message" required></textarea>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="text" placeholder="Subject" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
       </form>
     </div>
